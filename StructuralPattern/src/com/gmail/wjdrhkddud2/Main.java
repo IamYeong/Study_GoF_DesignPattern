@@ -1,5 +1,9 @@
 package com.gmail.wjdrhkddud2;
 
+import com.gmail.wjdrhkddud2.adapter.ApplePort;
+import com.gmail.wjdrhkddud2.adapter.CPort;
+import com.gmail.wjdrhkddud2.adapter.CompositeAdapter;
+import com.gmail.wjdrhkddud2.adapter.ExtendAdapter;
 import com.gmail.wjdrhkddud2.decorator.Desktop;
 import com.gmail.wjdrhkddud2.decorator.DesktopImpl;
 import com.gmail.wjdrhkddud2.decorator.GraphicCard;
@@ -17,6 +21,13 @@ public class Main {
          */
         Desktop baseDesktop = new DesktopImpl();
         Desktop upgradeDesktop = new RandomAccessMemory(new GraphicCard(new DesktopImpl()));
+
+
+        ApplePort applePort = new CompositeAdapter(new CPort());
+        applePort.connect();
+
+        ApplePort applePort1 = new ExtendAdapter();
+        applePort1.connect();
 
     }
 }
