@@ -4,6 +4,11 @@ import com.gmail.wjdrhkddud2.adapter.ApplePort;
 import com.gmail.wjdrhkddud2.adapter.CPort;
 import com.gmail.wjdrhkddud2.adapter.CompositeAdapter;
 import com.gmail.wjdrhkddud2.adapter.ExtendAdapter;
+import com.gmail.wjdrhkddud2.bridge.Chair;
+import com.gmail.wjdrhkddud2.bridge.Table;
+import com.gmail.wjdrhkddud2.bridge.abstractfactory.FactoryBuilder;
+import com.gmail.wjdrhkddud2.bridge.abstractfactory.Materials;
+import com.gmail.wjdrhkddud2.bridge.abstractfactory.WoodFactory;
 import com.gmail.wjdrhkddud2.decorator.Desktop;
 import com.gmail.wjdrhkddud2.decorator.DesktopImpl;
 import com.gmail.wjdrhkddud2.decorator.GraphicCard;
@@ -28,6 +33,9 @@ public class Main {
 
         ApplePort applePort1 = new ExtendAdapter();
         applePort1.connect();
+
+        Chair woodChair = new FactoryBuilder().getFactory(Materials.Wood).createChair();
+        Table leatherTable = new FactoryBuilder().getFactory(Materials.Leather).createTable();
 
     }
 }
