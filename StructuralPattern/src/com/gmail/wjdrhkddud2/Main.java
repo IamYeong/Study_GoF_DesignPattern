@@ -13,6 +13,7 @@ import com.gmail.wjdrhkddud2.decorator.Desktop;
 import com.gmail.wjdrhkddud2.decorator.DesktopImpl;
 import com.gmail.wjdrhkddud2.decorator.GraphicCard;
 import com.gmail.wjdrhkddud2.decorator.RandomAccessMemory;
+import com.gmail.wjdrhkddud2.flyweight.*;
 import com.gmail.wjdrhkddud2.proxy.CacheServer;
 import com.gmail.wjdrhkddud2.proxy.LoggingServer;
 import com.gmail.wjdrhkddud2.proxy.ProxyServer;
@@ -47,6 +48,21 @@ public class Main {
         proxyServer.run();
         cacheServer.run();
         loggingServer.run();
+
+        for (int i = 0; i < 10; i++) new CoordinatePin(0d, 0d, Shape.RectanglePin);
+        for (int i = 0; i < 10; i++) new CoordinatePin(0d, 0d, Shape.TrianglePin);
+        for (int i = 0; i < 10; i++) new CoordinatePin(0d, 0d, Shape.RoundPin);
+
+        System.out.println("Memory : " + Memory.size);
+        Memory.size = 0;
+
+        Map map = new Map();
+        for (int i = 0; i < 10; i++) map.createPin(0d, 0d, Shape.RectanglePin);
+        for (int i = 0; i < 10; i++) map.createPin(0d, 0d, Shape.TrianglePin);
+        for (int i = 0; i < 10; i++) map.createPin(0d, 0d, Shape.RoundPin);
+
+        System.out.println("Memory : " + Memory.size);
+        Memory.size = 0;
 
     }
 }
