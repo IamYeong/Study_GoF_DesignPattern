@@ -13,6 +13,10 @@ import com.gmail.wjdrhkddud2.decorator.Desktop;
 import com.gmail.wjdrhkddud2.decorator.DesktopImpl;
 import com.gmail.wjdrhkddud2.decorator.GraphicCard;
 import com.gmail.wjdrhkddud2.decorator.RandomAccessMemory;
+import com.gmail.wjdrhkddud2.proxy.CacheServer;
+import com.gmail.wjdrhkddud2.proxy.LoggingServer;
+import com.gmail.wjdrhkddud2.proxy.ProxyServer;
+import com.gmail.wjdrhkddud2.proxy.Server;
 
 public class Main {
 
@@ -36,6 +40,13 @@ public class Main {
 
         Chair woodChair = new FactoryBuilder().getFactory(Materials.Wood).createChair();
         Table leatherTable = new FactoryBuilder().getFactory(Materials.Leather).createTable();
+
+        Server proxyServer = new ProxyServer();
+        Server cacheServer = new CacheServer();
+        Server loggingServer = new LoggingServer();
+        proxyServer.run();
+        cacheServer.run();
+        loggingServer.run();
 
     }
 }
