@@ -6,6 +6,7 @@ import com.gmail.wjdrhkddud2.iterator.ArrayIterator;
 import com.gmail.wjdrhkddud2.iterator.Iterator;
 import com.gmail.wjdrhkddud2.mediator.Activity;
 import com.gmail.wjdrhkddud2.mediator.Context;
+import com.gmail.wjdrhkddud2.memento.Memento;
 import com.gmail.wjdrhkddud2.observer.CommonSubscriber;
 import com.gmail.wjdrhkddud2.observer.NewsA;
 import com.gmail.wjdrhkddud2.observer.NewsChannel;
@@ -94,6 +95,13 @@ public class Main {
         Mouse mouse = new Mouse();
         mouse.click(new LeftClick(monitorA));
         mouse.click(new RightClick(monitorB));
+
+        com.gmail.wjdrhkddud2.memento.state.Context mementoContext = new com.gmail.wjdrhkddud2.memento.state.ContextImpl();
+        mementoContext.setState(new com.gmail.wjdrhkddud2.memento.state.OffState(mementoContext));
+        Memento memento = mementoContext.createMemento();
+        mementoContext.power();
+        mementoContext.restore(memento);
+        mementoContext.power();
 
     }
 
