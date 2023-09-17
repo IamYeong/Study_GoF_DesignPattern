@@ -1,5 +1,8 @@
 package com.gmail.wjdrhkddud2;
 
+import com.gmail.wjdrhkddud2.iterator.ArrayCollection;
+import com.gmail.wjdrhkddud2.iterator.ArrayIterator;
+import com.gmail.wjdrhkddud2.iterator.Iterator;
 import com.gmail.wjdrhkddud2.mediator.Context;
 import com.gmail.wjdrhkddud2.mediator.Activity;
 import com.gmail.wjdrhkddud2.observer.CommonSubscriber;
@@ -14,6 +17,9 @@ import com.gmail.wjdrhkddud2.visitor.Entity;
 import com.gmail.wjdrhkddud2.visitor.EntityA;
 import com.gmail.wjdrhkddud2.visitor.EntityB;
 import com.gmail.wjdrhkddud2.visitor.VisitorImpl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -38,6 +44,30 @@ public class Main {
         Entity entityB = new EntityB();
         System.out.println("Result A : " + entityA.getResult(new VisitorImpl()));
         System.out.println("Result B : " + entityB.getResult(new VisitorImpl()));
+
+        //List<Integer> list = new ArrayList<>();
+        //Iterator iterator = list.iterator();
+        //Integer integer = (Integer) iterator.next();
+
+        ArrayCollection<Integer> array = new ArrayCollection<>();
+
+        for (int i = 0; i < 10; i++) {
+            array.add(i);
+        }
+
+        Iterator arrayIterator = array.iterator();
+        while (arrayIterator.hasNext()) {
+            System.out.println("Entity : " + arrayIterator.next());
+        }
+
+        array.remove(5);
+        array.remove(8);
+
+        Iterator arrayIterator2 = array.iterator();
+        while (arrayIterator2.hasNext()) {
+            System.out.println("Entity : " + arrayIterator2.next());
+        }
+
 
     }
 
