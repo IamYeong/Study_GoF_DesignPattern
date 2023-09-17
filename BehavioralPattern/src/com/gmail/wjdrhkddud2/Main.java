@@ -3,11 +3,13 @@ package com.gmail.wjdrhkddud2;
 import com.gmail.wjdrhkddud2.iterator.ArrayCollection;
 import com.gmail.wjdrhkddud2.iterator.ArrayIterator;
 import com.gmail.wjdrhkddud2.iterator.Iterator;
-import com.gmail.wjdrhkddud2.mediator.Context;
 import com.gmail.wjdrhkddud2.mediator.Activity;
+import com.gmail.wjdrhkddud2.mediator.Context;
 import com.gmail.wjdrhkddud2.observer.CommonSubscriber;
 import com.gmail.wjdrhkddud2.observer.NewsA;
 import com.gmail.wjdrhkddud2.observer.NewsChannel;
+import com.gmail.wjdrhkddud2.state.ContextImpl;
+import com.gmail.wjdrhkddud2.state.OffState;
 import com.gmail.wjdrhkddud2.strategy.Strategies;
 import com.gmail.wjdrhkddud2.strategy.Strategy;
 import com.gmail.wjdrhkddud2.strategy.StrategyFactory;
@@ -68,6 +70,12 @@ public class Main {
             System.out.println("Entity : " + arrayIterator2.next());
         }
 
+        com.gmail.wjdrhkddud2.state.Context context = new ContextImpl();
+        context.setState(new OffState(context));
+        context.power();
+        context.power();
+        context.power();
+        context.power();
 
     }
 
