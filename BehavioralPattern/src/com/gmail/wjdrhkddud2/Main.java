@@ -8,6 +8,7 @@ import com.gmail.wjdrhkddud2.mediator.Context;
 import com.gmail.wjdrhkddud2.observer.CommonSubscriber;
 import com.gmail.wjdrhkddud2.observer.NewsA;
 import com.gmail.wjdrhkddud2.observer.NewsChannel;
+import com.gmail.wjdrhkddud2.responsibilitychain.*;
 import com.gmail.wjdrhkddud2.state.ContextImpl;
 import com.gmail.wjdrhkddud2.state.OffState;
 import com.gmail.wjdrhkddud2.strategy.Strategies;
@@ -76,6 +77,14 @@ public class Main {
         context.power();
         context.power();
         context.power();
+
+
+        FilterMediator filterMediator = new FilterMediator();
+        filterMediator.addFilter(new CheckAccountFilter(filterMediator));
+        filterMediator.addFilter(new PasswordFilter(filterMediator));
+        filterMediator.addFilter(new FailureCountFilter(filterMediator));
+
+        filterMediator.start(new Account("abcde", "abcd1234!!"));
 
     }
 
