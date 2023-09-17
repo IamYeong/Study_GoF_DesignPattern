@@ -1,5 +1,6 @@
 package com.gmail.wjdrhkddud2;
 
+import com.gmail.wjdrhkddud2.command.*;
 import com.gmail.wjdrhkddud2.iterator.ArrayCollection;
 import com.gmail.wjdrhkddud2.iterator.ArrayIterator;
 import com.gmail.wjdrhkddud2.iterator.Iterator;
@@ -85,6 +86,14 @@ public class Main {
         filterMediator.addFilter(new FailureCountFilter(filterMediator));
 
         filterMediator.start(new Account("abcde", "abcd1234!!"));
+
+
+        Receiver monitorA = new MonitorA();
+        Receiver monitorB = new MonitorB();
+
+        Mouse mouse = new Mouse();
+        mouse.click(new LeftClick(monitorA));
+        mouse.click(new RightClick(monitorB));
 
     }
 
