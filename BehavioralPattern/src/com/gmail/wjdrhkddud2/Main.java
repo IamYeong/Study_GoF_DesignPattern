@@ -103,6 +103,10 @@ public class Main {
         mementoContext.restore(memento);
         mementoContext.power();
 
+        com.gmail.wjdrhkddud2.interpreter.Context interpretContext = new com.gmail.wjdrhkddud2.interpreter.Context();
+        int result = interpretContext.run("23+67+");
+        System.out.println(result);
+
     }
 
 }
